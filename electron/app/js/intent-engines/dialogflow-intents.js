@@ -38,6 +38,13 @@ function parseIntent(cmd){
 		case "goodbye":
 			actions.setAnswer(responses.bye, {type: 'local'})
 			break
+
+		case "animals":
+			if (cmd.params.animals.stringValue === 'dog') {
+				actions.setAnswer(responses.dog, { type: 'remote'} )
+			}
+			break
+
 		default:
 			actions.setAnswer(responses.confused, {type:'local'})
 			break

@@ -18,7 +18,14 @@ module.exports = {
 		text: 'string' <- what text should be overlayed on the screen
 	}
 	*/
-
+	dog: {
+		queryTerms: ['dog'],
+		servo: 'look-up',
+		led: {
+			anim: 'circleOut',
+			color: 'green'
+		},
+	},
 
 	confused: {
 		localFolder: 'confused',
