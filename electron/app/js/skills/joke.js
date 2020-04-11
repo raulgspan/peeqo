@@ -1,3 +1,4 @@
+const media = require('js/helpers/media')
 const speak = require('js/senses/speak')
 
 async function doJoke() {
