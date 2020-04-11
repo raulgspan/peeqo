@@ -3,6 +3,7 @@ const weather = require('js/skills/weather')
 const Timer = require('js/skills/timer')
 const event = require('js/events/events')
 const responses = require('js/responses/responses')
+const speak = require('js/senses/speak')
 
 function parseIntent(cmd){
 
@@ -47,7 +48,15 @@ function parseIntent(cmd){
 			break
 
 		case "joke":
-			actions.setAnswer(responses.joke)
+			let cbDuring = () => {
+				speak.speak(responses.joke)
+			}
+			actions.setAnswer({
+				type:'remote',
+				queryTerms: 'joke',
+				cbDuring: cbDuring,
+				text: responses.joke
+			})
 
 		default:
 			actions.setAnswer(responses.confused, {type:'local'})

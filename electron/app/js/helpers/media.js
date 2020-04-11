@@ -144,10 +144,17 @@ async function getJoke() {
 	return json.contents.jokes[0].joke.text
 }
 
+// a text to voice api that we don't appear to need since we have "speak"
+async function getVoice(text) {
+	const response = await fetch(`https://api.voicerss.org/?key=622b7c80270449c9a52129e5b07b83c6&hl=en-us&src=` + escape(text))
+	return response.body
+}
+
 module.exports = {
 	findRemoteGif,
 	findRemoteVideo,
 	findMediaType,
 	findMediaDuration,
 	getJoke,
+	getVoice,
 }

@@ -39,6 +39,13 @@ function playSound(filename){
 	audio.play()
 }
 
+function playRemoteSound(url){
+	let audio = document.getElementById("sound")
+	audio.currentTime = 0
+	audio.src = url
+	audio.play()
+}
+
 function stopSound(){
 	// stop sound playback
 
@@ -68,6 +75,7 @@ function setVolume(vol){
 module.exports = {
 	speak,
 	playSound,
+	playRemoteSound,
 	stopSound,
 	setVolume
 }
