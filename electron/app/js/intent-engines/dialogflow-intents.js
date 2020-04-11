@@ -49,7 +49,7 @@ function parseIntent(cmd){
 			break
 
 		case "joke":
-			const joke = await media.getJoke()
+			const joke = media.getJoke()
 			let cbDuring = () => {
 				speak.speak(joke)
 			}
