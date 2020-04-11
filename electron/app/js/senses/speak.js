@@ -5,7 +5,7 @@ const event = require('js/events/events')
 
 const tts = (os.arch() == 'arm')?'flite':'say'
 
-function speak(text){
+function speak(text, onClose) {
 	// speaks out the given text using the system voice
 	// @param {string} text - the text to be spoken
 	
@@ -21,6 +21,9 @@ function speak(text){
 
 	speechProcess.on('close', ()=>{
 		event.emit("finished-speaking")
+
+		if (onClose)
+			onClose()
 	})
 }
 

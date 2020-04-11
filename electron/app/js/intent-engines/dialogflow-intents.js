@@ -51,6 +51,12 @@ function parseIntent(cmd){
 			joke.doJoke()
 			break
 
+		case "chuck norris":
+			joke.doChuck()
+
+		case "trending gif":
+			joke.doTrending()
+
 		default:
 			actions.setAnswer(responses.confused, {type:'local'})
 			break

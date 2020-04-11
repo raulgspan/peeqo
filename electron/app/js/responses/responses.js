@@ -26,7 +26,6 @@ module.exports = {
 	},
 
 	joke: {
-		servo: 'jiggle',
 		led: {
 			anim: 'circle',
 			color: 'yellow'

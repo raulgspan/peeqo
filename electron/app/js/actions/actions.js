@@ -22,13 +22,16 @@ async function setAnswer(ans=null, overrides={}){
 
 	let r = null
 
-	if (ans.type == 'remote'){
-		r = await media.findRemoteGif(q)
-		console.log(`MEDIA URL > ${r}`)
+	if (ans.type == 'url') {
+		r = ans.url
+	} else if (ans.type == 'remote'){
+		r = await media.findRemoteGif(q)		
 	} else {
 		// local response
 		r = q
 	}
+
+	console.log(`MEDIA > ${r}`)
 
 	let mediaType = await media.findMediaType(r)
 	let d = await media.findMediaDuration(r)
