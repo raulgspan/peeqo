@@ -18,12 +18,11 @@ module.exports = {
 		text: 'string' <- what text should be overlayed on the screen
 	}
 	*/
-	dog: {
-		queryTerms: ['dog'],
-		servo: 'look-up',
+	animals: {
+		servo: 'jiggle',
 		led: {
-			anim: 'circleOut',
-			color: 'green'
+			anim: 'circle',
+			color: 'aqua'
 		},
 	},
 

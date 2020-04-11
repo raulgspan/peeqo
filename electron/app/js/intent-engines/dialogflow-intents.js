@@ -40,9 +40,10 @@ function parseIntent(cmd){
 			break
 
 		case "animals":
-			if (cmd.params.animals.stringValue === 'dog') {
-				actions.setAnswer(responses.dog, { type: 'remote'} )
-			}
+			actions.setAnswer(responses.animals, { 
+				queryTerms: [cmd.params.animals.stringValue], 
+				type: 'remote'
+			})
 			break
 
 		default:
