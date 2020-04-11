@@ -52,6 +52,8 @@ function parseIntent(cmd){
 			const joke = media.getJoke()
 			console.log('joke', joke)
 
+			speak.speak(joke)
+			/*
 			let cbDuring = () => {
 				speak.speak(joke)
 			}
@@ -61,7 +63,9 @@ function parseIntent(cmd){
 				cbDuring: cbDuring,
 				text: joke
 			})
-
+			*/
+			break
+			
 		default:
 			actions.setAnswer(responses.confused, {type:'local'})
 			break
