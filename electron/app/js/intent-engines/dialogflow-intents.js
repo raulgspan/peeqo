@@ -12,7 +12,7 @@ function parseIntent(cmd){
 
 	// this one is for google dialogflow, you might need to make adjustments for a different engine	
 
-	console.log(cmd)
+	console.log(cmd.intent, cmd)
 
 	switch(cmd.intent){
 
@@ -50,12 +50,14 @@ function parseIntent(cmd){
 
 		case "joke":
 			const joke = media.getJoke()
+			console.log('joke', joke)
+
 			let cbDuring = () => {
 				speak.speak(joke)
 			}
 			actions.setAnswer(responses.joke, {
-				type:'remote',
-				queryTerms: 'joke',
+				type: 'remote',
+				queryTerms: ['joke'],
 				cbDuring: cbDuring,
 				text: joke
 			})
