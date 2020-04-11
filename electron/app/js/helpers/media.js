@@ -3,24 +3,16 @@ const giphy = require('giphy-api')(config.giphy.key);
 const path = require('path')
 
 
-function findRemoteGif(query){
-	if(!query){
+async function findRemoteGif(query){
+	if (!query){
 		return null
 	}
 
-	return new Promise((resolve, reject)=>{
-		giphy.translate(query, (err,res)=>{
-
-			if(err || !res) reject(`Got error or no response when searching for "${query}" from Giphy`);
-
-			//console.log(res.data.images)
-
-			const gif = res.data.images.original_mp4.mp4
-
-			resolve(gif)
-
-		})
-	})	
+	const randNum = Math.floor(Math.random() * 100)
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${config.giphy.key}&q=${query}limit=1&offset=${randNum}`)
+	const json = await response.json()
+	
+    return json.data[0].images.original_mp4.mp4
 }
 
 async function findRemoteVideo(query){
