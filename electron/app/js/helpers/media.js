@@ -137,10 +137,17 @@ async function findVideoDuration(path){
 	return duration
 }
 
+async function getJoke() {
+	const response = await fetch(`https://api.jokes.one/jod`)
+	const json = await response.json()
+
+	return json.contents.jokes[0].joke.text
+}
 
 module.exports = {
 	findRemoteGif,
 	findRemoteVideo,
 	findMediaType,
-	findMediaDuration
+	findMediaDuration,
+	getJoke,
 }

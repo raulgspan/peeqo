@@ -22,7 +22,11 @@ async function setAnswer(ans=null, overrides={}){
 
 	let r = null
 
-	if(ans.type == 'remote'){
+	if (ans.text == 'joke') {
+		ans.text = await media.getJoke()
+	}
+	
+	if (ans.type == 'remote'){
 		r = await media.findRemoteGif(q)
 		console.log(`MEDIA URL > ${r}`)
 	} else {

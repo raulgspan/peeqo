@@ -19,10 +19,18 @@ module.exports = {
 	}
 	*/
 	animals: {
-		servo: 'jiggle',
 		led: {
 			anim: 'circle',
 			color: 'aqua'
+		},
+	},
+
+	joke: {
+		text: 'joke',
+		servo: 'jiggle',
+		led: {
+			anim: 'circle',
+			color: 'yellow'
 		},
 	},
 
@@ -62,12 +70,12 @@ module.exports = {
 	wakeword: {
 		localFolder: null,
 		queryTerms: null,
-		servo: 'alert',
+		//servo: 'alert',
 		led: {
 			anim:'circle',
 			color: 'aqua'
 		},
-		sound: 'alert.wav',
+		//sound: 'alert.wav',
 		cbAfter: function(){
 			event.emit('speech-to-text')
 		}

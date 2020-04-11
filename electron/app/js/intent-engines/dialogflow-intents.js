@@ -46,6 +46,9 @@ function parseIntent(cmd){
 			})
 			break
 
+		case "joke":
+			actions.setAnswer(responses.joke)
+
 		default:
 			actions.setAnswer(responses.confused, {type:'local'})
 			break
