@@ -5,8 +5,6 @@ async function doJoke() {
     const joke = await media.getJoke()
     console.log('joke', joke)
 
-    speak.speak(joke)
-    /*
     let cbDuring = () => {
         speak.speak(joke)
     }
@@ -16,7 +14,6 @@ async function doJoke() {
         cbDuring: cbDuring,
         text: joke
     })
-    */
 }
 
 module.exports = {
