@@ -53,7 +53,7 @@ function parseIntent(cmd){
 			let cbDuring = () => {
 				speak.speak(joke)
 			}
-			actions.setAnswer({
+			actions.setAnswer(responses.joke, {
 				type:'remote',
 				queryTerms: 'joke',
 				cbDuring: cbDuring,

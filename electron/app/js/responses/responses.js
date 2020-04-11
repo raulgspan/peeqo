@@ -26,7 +26,6 @@ module.exports = {
 	},
 
 	joke: {
-		text: 'joke',
 		servo: 'jiggle',
 		led: {
 			anim: 'circle',
