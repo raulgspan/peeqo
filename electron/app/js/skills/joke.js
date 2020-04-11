@@ -8,8 +8,11 @@ async function doJoke() {
     console.log('joke', joke)
 
     let cbDuring = () => {
-        speak.speak(joke)
+        speak.speak(joke, () => {
+            event.emit('servo-move', 'jiggle')
+        })
     }
+    
     actions.setAnswer(responses.joke, {
         type: 'remote',
         queryTerms: ['joke'],
