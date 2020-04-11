@@ -55,7 +55,7 @@ function parseIntent(cmd){
 			joke.doChuck()
 
 		case "trending gif":
-			joke.doTrending()
+			joke.doTrendingGif()
 
 		default:
 			actions.setAnswer(responses.confused, {type:'local'})

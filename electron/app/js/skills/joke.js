@@ -55,5 +55,5 @@ async function doTrendingGif() {
 module.exports = {
     doJoke,
     doChuck,
-    doTrending,
+    doTrendingGif,
 }
