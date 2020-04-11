@@ -8,8 +8,10 @@ async function findRemoteGif(query){
 		return null
 	}
 
+	console.log('gif query', query)
+
 	const randNum = Math.floor(Math.random() * 100)
-    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${config.giphy.key}&q=${query}limit=1&offset=${randNum}`)
+    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${config.giphy.key}&q=${query}&limit=1&offset=${randNum}`)
 	const json = await response.json()
 	
     return json.data[0].images.original_mp4.mp4
