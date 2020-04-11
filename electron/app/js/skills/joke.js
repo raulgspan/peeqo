@@ -1,5 +1,6 @@
 const media = require('js/helpers/media')
 const speak = require('js/senses/speak')
+const actions = require('js/actions/actions')
 
 async function doJoke() {
     const joke = await media.getJoke()
