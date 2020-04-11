@@ -17,3 +17,7 @@ async function doJoke() {
     })
     */
 }
+
+module.exports = {
+	doJoke,
+}
