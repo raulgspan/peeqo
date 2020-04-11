@@ -3,7 +3,6 @@ const common = require('js/helpers/common')
 const media = require('js/helpers/media')
 const responses = require('js/responses/responses')
 
-
 async function setAnswer(ans=null, overrides={}){
 
 	// @param {obj} ans - the response object as defined in responses.js

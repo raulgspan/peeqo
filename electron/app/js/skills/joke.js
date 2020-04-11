@@ -33,18 +33,14 @@ async function doChuck() {
 
     console.log('chuck', joke)
 
-    speak.speak(joke, () => {
-        event.emit('servo-move', 'jiggle')
-        text.removeText()
-    })
-
-    actions.setAnswer(responses.joke, {
-        type: 'remote',
-        queryTerms: ['chuck norris'],
-        text: joke,
-    })
-
+    event.emit('transition-eyes-away')
     text.showText(joke)
+
+    speak.speak(joke, () => {
+        text.removeText()
+        event.emit('transition-eyes-back')
+        event.emit('servo-move', 'jiggle')
+    })
 }
 
 async function doTrendingGif() {
