@@ -7,16 +7,13 @@ async function doJoke() {
     const joke = await media.getJoke()
     console.log('joke', joke)
 
-    let cbDuring = () => {
-        speak.speak(joke, () => {
-            event.emit('servo-move', 'jiggle')
-        })
-    }
-    
+    speak.speak(joke, () => {
+        event.emit('servo-move', 'jiggle')
+    })
+
     actions.setAnswer(responses.joke, {
         type: 'remote',
         queryTerms: ['joke'],
-        cbDuring: cbDuring,
         text: joke
     })
 }
