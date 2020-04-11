@@ -4,6 +4,7 @@ const Timer = require('js/skills/timer')
 const event = require('js/events/events')
 const responses = require('js/responses/responses')
 const speak = require('js/senses/speak')
+const media = require('js/helpers/media')
 
 function parseIntent(cmd){
 
@@ -48,14 +49,15 @@ function parseIntent(cmd){
 			break
 
 		case "joke":
+			const joke = await media.getJoke()
 			let cbDuring = () => {
-				speak.speak(responses.joke)
+				speak.speak(joke)
 			}
 			actions.setAnswer({
 				type:'remote',
 				queryTerms: 'joke',
 				cbDuring: cbDuring,
-				text: responses.joke
+				text: joke
 			})
 
 		default:
