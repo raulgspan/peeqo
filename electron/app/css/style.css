@@ -54,7 +54,7 @@ html, body, div {
 	color: #fff;
 	-webkit-text-stroke-width: 3px;
 	-webkit-text-stroke-color: black;
-	font-size: 18px;
+	font-size: 32px;
 	z-index:10000;
 	top:50%;
 	left:50%;

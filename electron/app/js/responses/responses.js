@@ -51,7 +51,8 @@ module.exports = {
 			anim: 'blink',
 			color: 'green'
 		},
-		sound: null
+		sound: 'alert.wav',
+		text: 'Hi!'
 	},
 
 	bye: {
@@ -62,7 +63,8 @@ module.exports = {
 			anim: "blink",
 			color: "blue"
 		},
-		sound:null
+		sound: 'alert.wav',
+		text: 'Bye bye!'
 	},
 
 	wakeword: {

@@ -21,11 +21,11 @@ async function doJoke() {
 }
 
 async function doChuck() {
-    actions.setAnswer(responses.joke, {
+    /*actions.setAnswer(responses.joke, {
         type: 'remote',
         queryTerms: ['chuck norris'],
         text: 'Loading...',
-    })
+    })*/
 
     const response = await fetch(`https://api.icndb.com/jokes/random`)
     const json = await response.json()    
