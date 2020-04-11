@@ -30,6 +30,12 @@ async function doChuck() {
     const json = await response.json()    
     const joke = json.value.joke
 
+    actions.setAnswer(responses.joke, {
+        type: 'remote',
+        queryTerms: ['chuck norris'],
+        text: joke,
+    })
+
     console.log('chuck', joke)
 
     speak.speak(joke, () => {
