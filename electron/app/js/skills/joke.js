@@ -21,37 +21,27 @@ async function doJoke() {
 }
 
 async function doChuck() {
-    done = false;
-
     actions.setAnswer(responses.joke, {
         type: 'remote',
         queryTerms: ['chuck norris'],
         text: 'Loading...',
-        cbDuring: () => {
-            const response = await fetch(`https://api.icndb.com/jokes/random`)
-            const json = await response.json()    
-            const joke = json.value.joke
-                    
-            console.log('chuck', joke)
+    })
 
-            event.emit('transition-eyes-away')
-            text.showText(joke)
+    const response = await fetch(`https://api.icndb.com/jokes/random`)
+    const json = await response.json()    
+    const joke = json.value.joke
 
-            speak.speak(joke, () => {
-                done = true;
+    console.log('chuck', joke)
+    
+    setTimeout(function() {
+        event.emit('transition-eyes-away')
+        text.showText(joke)
+    }, 100);
 
-                text.removeText()
-                event.emit('transition-eyes-back')
-                event.emit('servo-move', 'jiggle')
-            })                
-        },
-        cbAfter: () => {
-            if (done)
-                return;
-
-            event.emit('transition-eyes-away')
-            text.showText(joke)
-        }
+    speak.speak(joke, () => {
+        text.removeText()
+        event.emit('transition-eyes-back')
+        event.emit('servo-move', 'jiggle')
     })
 }
 
