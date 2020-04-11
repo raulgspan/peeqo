@@ -1,10 +1,9 @@
 const actions = require('js/actions/actions')
 const weather = require('js/skills/weather')
+const joke = require('js/skills/joke')
 const Timer = require('js/skills/timer')
 const event = require('js/events/events')
 const responses = require('js/responses/responses')
-const speak = require('js/senses/speak')
-const media = require('js/helpers/media')
 
 function parseIntent(cmd){
 
@@ -49,23 +48,9 @@ function parseIntent(cmd){
 			break
 
 		case "joke":
-			const joke = media.getJoke()
-			console.log('joke', joke)
-
-			speak.speak(joke)
-			/*
-			let cbDuring = () => {
-				speak.speak(joke)
-			}
-			actions.setAnswer(responses.joke, {
-				type: 'remote',
-				queryTerms: ['joke'],
-				cbDuring: cbDuring,
-				text: joke
-			})
-			*/
+			joke.doJoke()
 			break
-			
+
 		default:
 			actions.setAnswer(responses.confused, {type:'local'})
 			break
