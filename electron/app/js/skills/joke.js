@@ -24,11 +24,19 @@ async function doChuck() {
     actions.setAnswer(responses.joke, {
         type: 'remote',
         queryTerms: ['chuck norris'],
+        text: 'Loading...',
     })
 
     const response = await fetch(`https://api.icndb.com/jokes/random`)
     const json = await response.json()    
     const joke = json.value.joke
+
+    console.log('chuck', joke)
+
+    speak.speak(joke, () => {
+        event.emit('servo-move', 'jiggle')
+        text.removeText()
+    })
 
     actions.setAnswer(responses.joke, {
         type: 'remote',
@@ -36,11 +44,7 @@ async function doChuck() {
         text: joke,
     })
 
-    console.log('chuck', joke)
-
-    speak.speak(joke, () => {
-        event.emit('servo-move', 'jiggle')
-    })
+    text.showText(joke)
 }
 
 async function doTrendingGif() {
